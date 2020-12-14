@@ -1,25 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 import { AgGridComponent } from './ag-grid.component';
 
+import { YoutubeApiService } from "../../shared/services/youtube-api.service";
+
 describe('AgGridComponent', () => {
-  let component: AgGridComponent;
-  let fixture: ComponentFixture<AgGridComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AgGridComponent ]
-    })
-    .compileComponents();
-  });
-
   beforeEach(() => {
-    fixture = TestBed.createComponent(AgGridComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      declarations: [AgGridComponent],
+      providers: [ YoutubeApiService ]
+    }).compileComponents();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    const fixture = TestBed.createComponent(AgGridComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
 });
