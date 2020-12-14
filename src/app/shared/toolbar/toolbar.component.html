@@ -1,0 +1,6 @@
+<div class="toolbar-wrapper">
+  <button (click)="toggleSelectionMode()"><b>Toggle selection mode</b></button>
+
+  <p><b>Total: {{ totalRowsCount }}</b></p>
+  <p><b>Selected: {{ selectedRowsCount$ | async }}</b></p>
+</div>
